@@ -207,21 +207,24 @@ function SectionIntro({ eyebrow, title, description }) {
 
 function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden px-5 pt-28 sm:pt-32">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(20,184,166,0.22),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(56,189,248,0.16),transparent_30%)]" />
-      <div className="relative mx-auto grid min-h-[calc(100vh-72px)] max-w-6xl items-center gap-12 pb-16 lg:grid-cols-[1.05fr_0.95fr]">
-        <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-sm font-medium text-slate-200 shadow-2xl shadow-black/20">
+    <section id="home" className="hero-stage relative overflow-hidden px-5 pt-28 sm:pt-32">
+      <div className="hero-grid" aria-hidden="true" />
+      <div className="hero-scanline" aria-hidden="true" />
+      <div className="hero-glow" aria-hidden="true" />
+
+      <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-6xl items-center justify-center pb-16">
+        <div className="mx-auto max-w-5xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-sm font-medium text-slate-200 shadow-2xl shadow-black/20 backdrop-blur">
             <Sparkles size={15} className="text-emerald-300" />
             Full-stack para productos web en producción
           </div>
-          <h1 className="mt-7 max-w-4xl text-4xl font-semibold leading-[1.03] text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mx-auto mt-7 max-w-5xl text-4xl font-semibold leading-[1.03] text-white sm:text-6xl lg:text-7xl">
             {personalInfo.headline}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
             {personalInfo.summary}
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <a href="#projects" className="primary-button">
               Ver case studies
               <ArrowRight size={18} />
@@ -235,11 +238,16 @@ function Hero() {
               <Download size={18} />
             </a>
           </div>
-        </div>
 
-        <div className="animate-float">
-          <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-3 shadow-2xl shadow-black/40 backdrop-blur">
-            <ProductMockup project={projects[0]} />
+          <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+            {['Sistemas multi-rol', 'APIs + UI', 'Producción cloud'].map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-3 text-sm font-medium text-slate-300 shadow-xl shadow-black/20 backdrop-blur"
+              >
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </div>

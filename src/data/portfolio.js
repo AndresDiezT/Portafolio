@@ -8,7 +8,7 @@ export const personalInfo = {
   location: 'Bogotá, Colombia / Posibilidad de reubicación inmediata',
   linkedin: 'https://www.linkedin.com/in/andressantiagodiezfullstack',
   github: 'https://github.com/AndresDiezT',
-  cv: '/CV-Andres_Diez-fullstack.pdf',
+  cv: '/CV-Andres_Diez-backend.pdf',
   headline:
     'Construyo plataformas web reales para operar, vender y escalar negocios.',
   summary:
