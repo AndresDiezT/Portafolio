@@ -329,7 +329,13 @@ function CaseStudy({ project, index }) {
           ))}
         </div>
 
-        <a href={project.url} target="_blank" rel="noreferrer" className="mt-8 hidden inline-flex primary-button">
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-8 inline-flex primary-button"
+          style={{ display: 'none' }}
+        >
           Ver plataforma
           <ArrowUpRight size={18} />
         </a>
