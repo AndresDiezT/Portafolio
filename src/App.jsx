@@ -18,7 +18,7 @@ import { useState } from 'react'
 import Contact from './components/Contact'
 import {
   buildPillars,
-  experience,
+  experiences,
   navItems,
   personalInfo,
   processSteps,
@@ -329,7 +329,7 @@ function CaseStudy({ project, index }) {
           ))}
         </div>
 
-        <a href={project.url} target="_blank" rel="noreferrer" className="mt-8 inline-flex primary-button">
+        <a href={project.url} target="_blank" rel="noreferrer" className="mt-8 hidden inline-flex primary-button">
           Ver plataforma
           <ArrowUpRight size={18} />
         </a>
@@ -364,34 +364,38 @@ function Experience() {
         <SectionIntro
           eyebrow="Experiencia"
           title="Experiencia en sistemas empresariales en producción."
-          description="Además de proyectos propios desarrollados de forma independiente, trabajé en una plataforma empresarial privada durante mis prácticas, donde estabilidad, incidencias y entregas importan."
+          description="Experiencia desarrollando producto empresarial, integrando servicios y manteniendo funcionalidades en producción."
         />
 
-        <article className="case-study lg:grid-cols-[0.75fr_1.25fr]">
-          <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
-            <span className="inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-300">
-              {experience.visibility}
-            </span>
-            <p className="text-sm text-emerald-300">{experience.period}</p>
-            <h3 className="mt-4 text-2xl font-semibold text-white">
-              {experience.product}
-            </h3>
-            <p className="mt-2 text-base text-slate-400">
-              {experience.role} · {experience.company}
-            </p>
-          </div>
-          <div>
-            <p className="text-base leading-8 text-slate-300">{experience.summary}</p>
-            <div className="mt-6 grid gap-3">
-              {experience.highlights.map((item) => (
-                <div key={item} className="flex items-start gap-3 text-sm text-slate-300">
-                  <Check className="mt-0.5 shrink-0 text-emerald-300" size={16} />
-                  <span>{item}</span>
+        <div className="space-y-6">
+          {experiences.map((experience) => (
+            <article key={experience.company} className="case-study lg:grid-cols-[0.75fr_1.25fr]">
+              <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-5">
+                <span className="inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+                  {experience.context}
+                </span>
+                <p className="mt-3 text-sm text-emerald-300">{experience.period}</p>
+                <h3 className="mt-4 text-2xl font-semibold text-white">
+                  {experience.product}
+                </h3>
+                <p className="mt-2 text-base text-slate-400">
+                  {experience.role} · {experience.company}
+                </p>
+              </div>
+              <div>
+                <p className="text-base leading-8 text-slate-300">{experience.summary}</p>
+                <div className="mt-6 grid gap-3">
+                  {experience.highlights.map((item) => (
+                    <div key={item} className="flex items-start gap-3 text-sm text-slate-300">
+                      <Check className="mt-0.5 shrink-0 text-emerald-300" size={16} />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </article>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -407,7 +411,7 @@ function Technologies() {
           description="Uso herramientas modernas sin convertir el portafolio en una lista infinita. Lo importante es que frontend, backend y despliegue conversen bien."
         />
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {technologyGroups.map((group) => (
             <div key={group.title} className="surface-card">
               <h3 className="text-lg font-semibold text-white">{group.title}</h3>

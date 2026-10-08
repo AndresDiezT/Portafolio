@@ -12,7 +12,7 @@ export const personalInfo = {
   headline:
     'Construyo plataformas web reales para operar, vender y escalar negocios.',
   summary:
-    'Desarrollador full-stack con experiencia creando aplicaciones end-to-end para entornos empresariales: interfaces modernas, APIs REST, integraciones, roles, permisos, datos y despliegue cloud. Mi foco está en convertir necesidades de negocio en sistemas mantenibles, estables y listos para producción.',
+    'Desarrollador full-stack con experiencia construyendo aplicaciones web end-to-end para entornos empresariales. Desarrollo funcionalidades de frontend y backend, APIs e integraciones con React y Next.js, y servicios en Python, Node.js y .NET, con foco en soluciones mantenibles y listas para producción.',
 }
 
 export const navItems = [
@@ -135,22 +135,40 @@ export const projects = [
   },
 ]
 
-export const experience = {
-  company: 'GroupCos',
-  role: 'Desarrollador Full Stack en prácticas',
-  period: 'Octubre 2025 - Abril 2026',
-  product: 'Plataforma de Gestión Empresarial',
-  visibility: 'Producto privado',
-  summary:
-    'Durante mis prácticas participé en una plataforma de gestión empresarial privada, orientada a módulos de ventas, usuarios y operaciones comerciales. Por confidencialidad no incluyo enlace, repositorio ni capturas internas; en su lugar presento el tipo de responsabilidades técnicas realizadas.',
-  highlights: [
-    'Desarrollo y mantenimiento de APIs REST y funcionalidades internas en sistemas empresariales.',
-    'Implementación de módulos para ventas, usuarios y operaciones comerciales.',
-    'Estandarización de entornos con Docker para reducir diferencias entre desarrollo y producción.',
-    'Soporte, optimización y corrección de incidencias en entornos productivos.',
-    'Trabajo colaborativo con Git, GitHub y Azure DevOps bajo metodologías ágiles.',
-  ],
-}
+export const experiences = [
+  {
+    company: 'GPS Control',
+    role: 'Desarrollador Full Stack',
+    period: 'Mayo 2026',
+    product: 'Sistemas empresariales',
+    context: 'Presencial',
+    summary:
+      'Desarrollo y mantenimiento de sistemas empresariales, con foco en integraciones, automatización y nuevas funcionalidades apoyadas en inteligencia artificial.',
+    highlights: [
+      'Implementación de chats y análisis de datos con IA.',
+      'Diseño y consumo de APIs REST para integrar servicios y sistemas internos.',
+      'Desarrollo de procesos de web scraping e integración con servicios de terceros.',
+      'Integración de servicios geográficos como Google Maps y Mapbox.',
+      'Colaboración con Git y GitHub en equipos ágiles.',
+    ],
+  },
+  {
+    company: 'GroupCos',
+    role: 'Desarrollador Full Stack',
+    period: 'Octubre 2025 - Abril 2026',
+    product: 'Plataforma de Gestión Empresarial',
+    context: 'Remoto · Producto privado',
+    summary:
+      'Participé en una plataforma empresarial privada orientada a ventas, usuarios y operaciones comerciales. Por confidencialidad no incluyo enlaces ni capturas internas.',
+    highlights: [
+      'Desarrollo de funcionalidades frontend y backend para sistemas empresariales.',
+      'Construcción y consumo de APIs REST para integrar servicios.',
+      'Implementación de mejoras de experiencia de usuario en aplicaciones internas.',
+      'Mantenimiento de funcionalidades y resolución de incidencias en producción.',
+      'Colaboración con Git y Azure DevOps bajo metodologías ágiles.',
+    ],
+  },
+]
 
 export const technologyGroups = [
   {
@@ -159,11 +177,15 @@ export const technologyGroups = [
   },
   {
     title: 'Backend',
-    items: ['Python', 'FastAPI', 'Django', 'Node.js', 'Express', 'C#/.NET', 'Laravel'],
+    items: ['Python', 'FastAPI', 'Django', 'Node.js', 'Express', 'C#/.NET', 'PHP', 'Laravel'],
   },
   {
     title: 'Datos y cloud',
     items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Docker', 'Azure', 'DigitalOcean', 'CI/CD'],
+  },
+  {
+    title: 'IA e integraciones',
+    items: ['Chats y análisis con IA', 'Web scraping', 'Google Maps', 'Mapbox', 'APIs de terceros', 'Desarrollo asistido por IA'],
   },
 ]
 
