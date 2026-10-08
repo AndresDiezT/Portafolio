@@ -140,10 +140,10 @@ export const experiences = [
     company: 'GPS Control',
     role: 'Desarrollador Full Stack',
     period: 'Mayo 2026',
-    product: 'Sistemas empresariales',
+    product: 'Sistemas de gestión GPS',
     context: 'Presencial',
     summary:
-      'Desarrollo y mantenimiento de sistemas empresariales, con foco en integraciones, automatización y nuevas funcionalidades apoyadas en inteligencia artificial.',
+      'Desarrollo y mantenimiento de soluciones empresariales relacionadas con GPS, integrando APIs REST, servicios geográficos como Google Maps y Mapbox, web scraping y funciones de análisis con IA.',
     highlights: [
       'Implementación de chats y análisis de datos con IA.',
       'Diseño y consumo de APIs REST para integrar servicios y sistemas internos.',
