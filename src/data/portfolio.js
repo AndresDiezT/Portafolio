@@ -6,7 +6,7 @@ const shared = {
   phone: '+57 311 5267920',
   linkedin: 'https://www.linkedin.com/in/andressantiagodiezfullstack',
   github: 'https://github.com/AndresDiezT',
-  cv: '/CV-Andres_Diez-fullstack (1).pdf',
+  cvs: { es: '/CV-Andres_Diez_ES.pdf', en: '/CV-Andres_Diez_EN.pdf' },
 }
 
 const screenshots = {
@@ -46,6 +46,7 @@ const es = {
       'Full Stack Developer con Python, FastAPI, .NET, React y Angular. Antes de escribir código entiendo el proceso, documento reglas y riesgos, decido la arquitectura con ADRs y defino contratos. Después construyo, pruebo y audito.',
     primary: 'Ver casos de estudio',
     cv: 'Descargar CV',
+    cvOptions: { es: 'Español', en: 'Inglés' },
     docCard: {
       file: 'altovivo/docs/ADR/0018-locking-concurrencia-stock.md',
       status: 'Aceptada',
@@ -270,6 +271,7 @@ const en = {
       'Full Stack Developer working with Python, FastAPI, .NET, React and Angular. Before writing code I map the process, document rules and risks, record architecture decisions as ADRs and define contracts. Then I build, test and audit.',
     primary: 'View case studies',
     cv: 'Download CV',
+    cvOptions: { es: 'Spanish', en: 'English' },
     docCard: {
       file: 'altovivo/docs/ADR/0018-stock-concurrency-locking.md',
       status: 'Accepted',

@@ -2,6 +2,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   Check,
+  ChevronDown,
   Download,
   FileText,
   Github,
@@ -11,7 +12,7 @@ import {
   Menu,
   X,
 } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Contact from './components/Contact'
 import { getPortfolio } from './data/portfolio'
 
@@ -37,6 +38,41 @@ function LanguageSwitcher({ locale, setLocale, label }) {
           {option.toUpperCase()}
         </button>
       ))}
+    </div>
+  )
+}
+
+function CvMenu({ label, options, files }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const menuRef = useRef(null)
+
+  useEffect(() => {
+    if (!isOpen) return undefined
+    const close = (event) => {
+      if (event.type === 'keydown' ? event.key === 'Escape' : !menuRef.current?.contains(event.target)) setIsOpen(false)
+    }
+    document.addEventListener('mousedown', close)
+    document.addEventListener('keydown', close)
+    return () => {
+      document.removeEventListener('mousedown', close)
+      document.removeEventListener('keydown', close)
+    }
+  }, [isOpen])
+
+  return (
+    <div ref={menuRef} className="relative">
+      <button type="button" className="ghost-button w-full" onClick={() => setIsOpen((value) => !value)} aria-expanded={isOpen} aria-haspopup="true">
+        <Download size={18} />{label}<ChevronDown size={16} className={`transition ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      {isOpen && (
+        <div className="absolute left-0 right-0 top-full z-20 mt-2 min-w-48 overflow-hidden rounded-xl border border-white/10 bg-slate-900 p-1 shadow-2xl shadow-black/50">
+          {Object.entries(files).map(([lang, href]) => (
+            <a key={lang} href={href} target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)} className="flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 transition hover:bg-white/[0.06] hover:text-white">
+              {options[lang]}<span className="font-mono text-xs text-emerald-300">{lang.toUpperCase()}</span>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -132,7 +168,7 @@ function Hero({ content }) {
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">{hero.summary}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a href="#cases" className="primary-button">{hero.primary}<ArrowRight size={18} /></a>
-              <a href={personalInfo.cv} className="ghost-button" target="_blank" rel="noreferrer">{hero.cv}<Download size={18} /></a>
+              <CvMenu label={hero.cv} options={hero.cvOptions} files={personalInfo.cvs} />
               <div className="flex gap-3">
                 <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="social-link h-12 w-12" aria-label="LinkedIn"><Linkedin size={19} /></a>
                 <a href={personalInfo.github} target="_blank" rel="noreferrer" className="social-link h-12 w-12" aria-label="GitHub"><Github size={19} /></a>
@@ -181,7 +217,7 @@ function Screenshots({ images, name, label }) {
   )
 }
 
-function CaseStudy({ item, labels, personalInfo }) {
+function CaseStudy({ item, labels }) {
   return (
     <article className="case-card">
       <div className="flex flex-wrap items-center gap-3">
@@ -246,7 +282,7 @@ function Cases({ content }) {
       <div className="mx-auto max-w-6xl">
         <SectionIntro {...content.sections.cases} />
         <div className="space-y-8">
-          {content.cases.map((item) => <CaseStudy key={item.id} item={item} labels={content.caseLabels} personalInfo={content.personalInfo} />)}
+          {content.cases.map((item) => <CaseStudy key={item.id} item={item} labels={content.caseLabels} />)}
           <OtherProject project={content.otherProject} labels={content.caseLabels} />
         </div>
       </div>
