@@ -16,13 +16,13 @@ const screenshots = {
 
 const es = {
   document: {
-    title: 'Andres Diez | Full Stack Developer',
+    title: 'Andres Diez | Full Stack Software Engineer',
     description:
-      'Full Stack Developer que convierte procesos de negocio en sistemas confiables: arquitectura documentada, APIs, interfaces e integraciones.',
+      'Full Stack Software Engineer que convierte procesos de negocio en sistemas confiables: arquitectura documentada, APIs, interfaces e integraciones.',
   },
   personalInfo: {
     ...shared,
-    role: 'Full Stack Developer',
+    role: 'Full Stack Software Engineer',
     location: 'Bogotá, Colombia · Remoto, híbrido o reubicación',
   },
   header: {
@@ -43,7 +43,7 @@ const es = {
     title: 'Convierto procesos de negocio complejos en',
     titleAccent: 'sistemas confiables.',
     summary:
-      'Full Stack Developer con Python, FastAPI, .NET, React y Angular. Antes de escribir código entiendo el proceso, documento reglas y riesgos, decido la arquitectura con ADRs y defino contratos. Después construyo, pruebo y audito.',
+      'Full Stack Software Engineer con Python, FastAPI, .NET, React y Angular. Antes de escribir código entiendo el proceso, documento reglas y riesgos, decido la arquitectura con ADRs y defino criterios de aceptación y contratos. Después construyo con pruebas automatizadas y verifico antes de cada entrega.',
     primary: 'Ver casos de estudio',
     cv: 'Descargar CV',
     cvOptions: { es: 'Español', en: 'Inglés' },
@@ -91,7 +91,7 @@ const es = {
     {
       title: 'Modelar el producto',
       description: 'Épicas e historias de usuario con criterios de aceptación y tareas por capa.',
-      artifact: 'Épicas · Historias · QA',
+      artifact: 'Épicas · Historias · Criterios de aceptación',
     },
     {
       title: 'Decidir la arquitectura',
@@ -105,8 +105,8 @@ const es = {
     },
     {
       title: 'Construir y verificar',
-      description: 'Código por capas, pruebas automatizadas y auditorías que priorizan la deuda técnica.',
-      artifact: 'Código · Tests · Auditoría',
+      description: 'Pruebas automatizadas de unidad e integración, regresión antes de cada cambio y auditorías que priorizan riesgos por severidad.',
+      artifact: 'Tests · Regresión · Auditoría',
     },
   ],
   caseLabels: {
@@ -131,7 +131,7 @@ const es = {
       problem:
         'Cada negocio necesitaba controlar inventario, ventas, cartera, finanzas y producción con sus propias reglas y permisos, sin duplicar plataformas ni mezclar datos entre organizaciones.',
       role:
-        'Proyecto independiente a partir de requerimientos del cliente. Diseñé la arquitectura multi-tenant, documenté épicas, historias y contratos de API, construí los módulos y audité el sistema para priorizar la deuda técnica.',
+        'Proyecto independiente a partir de requerimientos del cliente. Diseñé la arquitectura multi-tenant, documenté épicas, historias y contratos de API, construí los módulos con pruebas automatizadas de unidad e integración y audité el sistema para priorizar riesgos por severidad.',
       decisions: [
         {
           title: 'Locking pesimista sobre el stock',
@@ -177,7 +177,7 @@ const es = {
         },
         {
           title: 'Asistente de WhatsApp con datos verificables',
-          why: 'El asistente atiende pedidos y reservas, pero precios, disponibilidad y zonas siempre salen de la base de datos, nunca del texto generado.',
+          why: 'El asistente atiende pedidos y reservas, pero precios, disponibilidad y zonas siempre salen de la base de datos, nunca del texto generado. Un set fijo de conversaciones de prueba se ejecuta antes de cada cambio.',
         },
       ],
       stack: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'arq', 'Next.js', 'WhatsApp Cloud API', 'Docker'],
@@ -227,6 +227,7 @@ const es = {
     { title: 'Frontend', items: ['React', 'Next.js', 'Angular', 'TypeScript', 'Tailwind CSS'] },
     { title: 'Datos y cloud', items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Redis', 'Docker', 'Azure', 'CI/CD'] },
     { title: 'Integraciones', items: ['APIs REST', 'WhatsApp Cloud API', 'Pasarelas de pago', 'Google Maps', 'Mapbox'] },
+    { title: 'Testing y calidad', items: ['pytest', 'Pruebas de unidad e integración', 'Pruebas de regresión', 'Criterios de aceptación', 'Planes de prueba'] },
   ],
   contact: {
     eyebrow: 'Contacto',
@@ -241,13 +242,13 @@ const es = {
 
 const en = {
   document: {
-    title: 'Andres Diez | Full Stack Developer',
+    title: 'Andres Diez | Full Stack Software Engineer',
     description:
-      'Full Stack Developer who turns business processes into reliable systems: documented architecture, APIs, interfaces and integrations.',
+      'Full Stack Software Engineer who turns business processes into reliable systems: documented architecture, APIs, interfaces and integrations.',
   },
   personalInfo: {
     ...shared,
-    role: 'Full Stack Developer',
+    role: 'Full Stack Software Engineer',
     location: 'Bogotá, Colombia · Remote, hybrid or relocation',
   },
   header: {
@@ -268,7 +269,7 @@ const en = {
     title: 'I turn complex business processes into',
     titleAccent: 'reliable systems.',
     summary:
-      'Full Stack Developer working with Python, FastAPI, .NET, React and Angular. Before writing code I map the process, document rules and risks, record architecture decisions as ADRs and define contracts. Then I build, test and audit.',
+      'Full Stack Software Engineer working with Python, FastAPI, .NET, React and Angular. Before writing code I map the process, document rules and risks, record architecture decisions as ADRs and define acceptance criteria and contracts. Then I build with automated tests and verify before every release.',
     primary: 'View case studies',
     cv: 'Download CV',
     cvOptions: { es: 'Spanish', en: 'English' },
@@ -316,7 +317,7 @@ const en = {
     {
       title: 'Model the product',
       description: 'Epics and user stories with acceptance criteria and tasks per layer.',
-      artifact: 'Epics · Stories · QA',
+      artifact: 'Epics · Stories · Acceptance criteria',
     },
     {
       title: 'Decide the architecture',
@@ -330,8 +331,8 @@ const en = {
     },
     {
       title: 'Build and verify',
-      description: 'Layered code, automated tests and audits that prioritize technical debt.',
-      artifact: 'Code · Tests · Audit',
+      description: 'Automated unit and integration tests, regression checks before every change and audits that rank risks by severity.',
+      artifact: 'Tests · Regression · Audit',
     },
   ],
   caseLabels: {
@@ -356,7 +357,7 @@ const en = {
       problem:
         'Each business needed to manage inventory, sales, receivables, finance and production with its own rules and permissions, without duplicating platforms or mixing data across organizations.',
       role:
-        'Independent project built from client requirements. I designed the multi-tenant architecture, documented epics, user stories and API contracts, built the modules and audited the system to prioritize technical debt.',
+        'Independent project built from client requirements. I designed the multi-tenant architecture, documented epics, user stories and API contracts, built the modules with automated unit and integration tests and audited the system to rank risks by severity.',
       decisions: [
         {
           title: 'Pessimistic locking on stock',
@@ -402,7 +403,7 @@ const en = {
         },
         {
           title: 'WhatsApp assistant with verifiable data',
-          why: 'The assistant handles orders and bookings, but prices, availability and zones always come from the database, never from generated text.',
+          why: 'The assistant handles orders and bookings, but prices, availability and zones always come from the database, never from generated text. A fixed set of test conversations runs before every change.',
         },
       ],
       stack: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'arq', 'Next.js', 'WhatsApp Cloud API', 'Docker'],
@@ -451,6 +452,7 @@ const en = {
     { title: 'Frontend', items: ['React', 'Next.js', 'Angular', 'TypeScript', 'Tailwind CSS'] },
     { title: 'Data & cloud', items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Redis', 'Docker', 'Azure', 'CI/CD'] },
     { title: 'Integrations', items: ['REST APIs', 'WhatsApp Cloud API', 'Payment gateways', 'Google Maps', 'Mapbox'] },
+    { title: 'Testing & quality', items: ['pytest', 'Unit and integration tests', 'Regression testing', 'Acceptance criteria', 'Test plans'] },
   ],
   contact: {
     eyebrow: 'Contact',

@@ -322,9 +322,9 @@ function Stack({ content }) {
     <section className="px-4 pb-20 sm:px-5 sm:pb-28">
       <div className="mx-auto max-w-6xl">
         <SectionIntro {...content.sections.stack} />
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
           {content.technologyGroups.map((group) => (
-            <div key={group.title} className="bg-slate-950 p-6">
+            <div key={group.title} className="bg-slate-950 p-6 sm:last:col-span-2 lg:last:col-span-1">
               <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-emerald-300">{group.title}</h3>
               <ul className="mt-4 space-y-2">{group.items.map((item) => <li key={item} className="text-sm text-slate-300">{item}</li>)}</ul>
             </div>
