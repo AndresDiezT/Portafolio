@@ -39,7 +39,7 @@ const es = {
     { label: 'Contacto', href: '#contact' },
   ],
   hero: {
-    badge: 'Disponible · Full Stack · Backend',
+    badge: 'Disponible · Full Stack · Backend · Frontend',
     title: 'Convierto procesos de negocio complejos en',
     titleAccent: 'sistemas confiables.',
     summary:
@@ -265,7 +265,7 @@ const en = {
     { label: 'Contact', href: '#contact' },
   ],
   hero: {
-    badge: 'Available · Full Stack · Backend',
+    badge: 'Available · Full Stack · Backend · Frontend',
     title: 'I turn complex business processes into',
     titleAccent: 'reliable systems.',
     summary:
