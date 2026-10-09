@@ -18,7 +18,7 @@ const es = {
   document: {
     title: 'Andres Diez | Full Stack Developer',
     description:
-      'Full Stack Developer que convierte procesos de negocio en sistemas confiables: arquitectura documentada, APIs, interfaces e IA con reglas verificables.',
+      'Full Stack Developer que convierte procesos de negocio en sistemas confiables: arquitectura documentada, APIs, interfaces e integraciones.',
   },
   personalInfo: {
     ...shared,
@@ -39,45 +39,38 @@ const es = {
     { label: 'Contacto', href: '#contact' },
   ],
   hero: {
-    badge: 'Disponible · Full Stack · Backend · IA aplicada',
+    badge: 'Disponible · Full Stack · Backend',
     title: 'Convierto procesos de negocio complejos en',
     titleAccent: 'sistemas confiables.',
     summary:
       'Full Stack Developer con Python, FastAPI, .NET, React y Angular. Antes de escribir código entiendo el proceso, documento reglas y riesgos, decido la arquitectura con ADRs y defino contratos. Después construyo, pruebo y audito.',
     primary: 'Ver casos de estudio',
     cv: 'Descargar CV',
-    evidenceTitle: 'Evidencia en mis dos proyectos principales',
-    evidence: [
-      { value: '62', label: 'Decisiones de arquitectura (ADRs)' },
-      { value: '322', label: 'Historias de usuario con criterios de aceptación' },
-      { value: '39', label: 'Épicas de producto' },
-      { value: '153', label: 'Archivos de pruebas automatizadas' },
-    ],
     docCard: {
-      file: 'docs/ADR/0003-ia-con-tool-calling.md',
+      file: 'altovivo/docs/ADR/0018-locking-concurrencia-stock.md',
       status: 'Aceptada',
-      title: 'La IA nunca genera precios desde memoria',
+      title: 'Locking pesimista para el inventario',
       context:
-        'Un modelo puede "alucinar" un precio plausible pero falso. Inaceptable cuando hay dinero real de por medio.',
+        'Dos cajeros vendiendo el mismo producto al mismo tiempo podían perder una actualización del stock.',
       decision:
-        'Tool calling: el modelo decide la acción, pero cada precio, cupo o zona sale de una consulta a la base de datos del restaurante.',
+        'Un INSERT … ON CONFLICT atómico centraliza el bloqueo de fila para los cinco módulos que mueven inventario, con un orden de adquisición determinista.',
       tradeoff:
-        'Más complejidad que un prompt simple, a cambio de respuestas verificables y pruebas de regresión sobre conversaciones fijas.',
+        'Aparece riesgo de deadlock, que se controla con el orden fijo. Se descartó el locking optimista porque obligaba a reintentar en cada punto de llamada.',
       labels: { context: 'Contexto', decision: 'Decisión', tradeoff: 'Trade-off' },
     },
   },
   sections: {
     process: {
       eyebrow: 'Cómo trabajo',
-      title: 'La IA acelera el código. El criterio lo pongo yo.',
+      title: 'Entiendo el problema antes de escribir código.',
       description:
-        'Hoy cualquiera puede generar pantallas. Lo difícil es saber qué construir, qué puede salir mal y cómo dejarlo mantenible. Cada paso de mi proceso deja un entregable revisable.',
+        'Lo difícil no es programar una pantalla, sino saber qué construir, qué puede salir mal y cómo dejarlo mantenible. Cada paso de mi proceso deja un entregable revisable.',
     },
     cases: {
       eyebrow: 'Casos de estudio',
       title: 'Dos sistemas diseñados de punta a punta.',
       description:
-        'No son demos. Son productos con reglas de negocio reales: dinero, inventario, permisos y concurrencia. Aquí está lo que decidí y por qué.',
+        'Productos con reglas de negocio reales: dinero, inventario, permisos y concurrencia. Aquí está lo que decidí y por qué.',
     },
     experience: {
       eyebrow: 'Experiencia',
@@ -85,7 +78,7 @@ const es = {
     },
     stack: {
       eyebrow: 'Stack',
-      title: 'Herramientas que uso con criterio.',
+      title: 'Herramientas que uso a diario.',
     },
   },
   processSteps: [
@@ -119,7 +112,6 @@ const es = {
     problem: 'El problema',
     role: 'Mi rol',
     decisions: 'Decisiones clave',
-    why: 'Por qué',
     stack: 'Stack',
     visit: 'Ver plataforma',
     docs: 'Solicitar documentación',
@@ -130,41 +122,6 @@ const es = {
   },
   cases: [
     {
-      id: 'restaurante',
-      name: 'Plataforma para operar restaurantes',
-      tagline: 'Asistente de WhatsApp con IA + operación completa del restaurante',
-      status: 'En construcción · Repositorio privado',
-      problem:
-        'Las apps de domicilio cobran comisión sobre la venta total, WhatsApp se responde a mano y tarde, y el dueño no ve dónde pierde dinero: caja que no cuadra, comprobantes falsos e insumos que suben de precio.',
-      role:
-        'Producto, documentación, arquitectura y desarrollo de punta a punta: visión y pricing, 17 épicas, ADRs, modelo de datos, integración con WhatsApp, backend en Python y frontend en Next.js.',
-      stats: [
-        { value: '29', label: 'ADRs' },
-        { value: '126', label: 'Historias' },
-        { value: '17', label: 'Épicas' },
-        { value: '71', label: 'Archivos de test' },
-      ],
-      decisions: [
-        {
-          title: 'IA con tool calling, sin precios en el prompt',
-          why: 'El modelo elige la acción; los datos verificables salen de la base de datos del tenant. Un set fijo de conversaciones se ejecuta antes de cualquier cambio de prompt.',
-        },
-        {
-          title: 'Pagos con adaptador multipasarela',
-          why: 'Una sola fuente de verdad para dinero y reembolsos, independiente del proveedor, con OCR y verificación de comprobantes contra fraude.',
-        },
-        {
-          title: 'Abstracción del proveedor de IA',
-          why: 'Las tools no quedan acopladas a un modelo. Esto mitiga el riesgo de costos, caídas o cambios del proveedor.',
-        },
-        {
-          title: 'Efectos de transiciones con outbox',
-          why: 'Los cambios de estado de un pedido disparan notificaciones de forma confiable, sin perder eventos si falla un servicio externo.',
-        },
-      ],
-      stack: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'arq', 'Next.js', 'WhatsApp Cloud API', 'Docker'],
-    },
-    {
       id: 'altovivo',
       name: 'Alto Vivo',
       tagline: 'Sistema de gestión multi-negocio: inventario, ventas, finanzas y producción',
@@ -173,13 +130,7 @@ const es = {
       problem:
         'Cada negocio necesitaba controlar inventario, ventas, cartera, finanzas y producción con sus propias reglas y permisos, sin duplicar plataformas ni mezclar datos entre organizaciones.',
       role:
-        'Proyecto independiente a partir de requerimientos del cliente. Diseñé la arquitectura multi-tenant, documenté 22 épicas y 20 contratos de API, construí los módulos y audité el sistema en 7 rondas.',
-      stats: [
-        { value: '33', label: 'ADRs' },
-        { value: '196', label: 'Historias' },
-        { value: '20', label: 'Contratos API' },
-        { value: '82', label: 'Archivos de test' },
-      ],
+        'Proyecto independiente a partir de requerimientos del cliente. Diseñé la arquitectura multi-tenant, documenté épicas, historias y contratos de API, construí los módulos y audité el sistema para priorizar la deuda técnica.',
       decisions: [
         {
           title: 'Locking pesimista sobre el stock',
@@ -201,6 +152,35 @@ const es = {
       stack: ['Python', 'FastAPI', 'SQLAlchemy', 'Alembic', 'PostgreSQL', 'Redis', 'React', 'Docker', 'Wompi'],
       screenshots: screenshots.altovivo,
     },
+    {
+      id: 'restaurante',
+      name: 'Plataforma para operar restaurantes',
+      tagline: 'Pedidos multicanal, cocina, caja y pagos en una sola plataforma',
+      status: 'En construcción · Repositorio privado',
+      problem:
+        'Las apps de domicilio cobran comisión sobre la venta total, WhatsApp se responde a mano y tarde, y el dueño no ve dónde pierde dinero: caja que no cuadra, comprobantes falsos e insumos que suben de precio.',
+      role:
+        'Producto, documentación, arquitectura y desarrollo de punta a punta: visión, alcance y pricing, épicas, ADRs, modelo de datos, integración con WhatsApp, backend en Python y frontend en Next.js.',
+      decisions: [
+        {
+          title: 'Multi-tenant sobre PostgreSQL',
+          why: 'Cada restaurante opera aislado sobre la misma base, con un solo login para pedidos, caja y turnos.',
+        },
+        {
+          title: 'Pagos con adaptador multipasarela',
+          why: 'Una sola fuente de verdad para dinero y reembolsos, independiente del proveedor, con verificación de comprobantes contra fraude.',
+        },
+        {
+          title: 'Efectos de transiciones con outbox',
+          why: 'Los cambios de estado de un pedido disparan notificaciones de forma confiable, sin perder eventos si falla un servicio externo.',
+        },
+        {
+          title: 'Asistente de WhatsApp con datos verificables',
+          why: 'El asistente atiende pedidos y reservas, pero precios, disponibilidad y zonas siempre salen de la base de datos, nunca del texto generado.',
+        },
+      ],
+      stack: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'arq', 'Next.js', 'WhatsApp Cloud API', 'Docker'],
+    },
   ],
   otherProject: {
     name: 'AgroKaja',
@@ -218,12 +198,12 @@ const es = {
       period: 'May 2026 – Actualidad',
       context: 'Presencial',
       summary:
-        'Soluciones empresariales de gestión GPS: APIs, servicios geográficos y funcionalidades con IA para operaciones.',
+        'Soluciones empresariales de gestión GPS: APIs, servicios geográficos e integraciones con sistemas internos y de terceros.',
       highlights: [
-        'Chats y análisis de datos con IA aplicados a la operación.',
         'Diseño y consumo de APIs REST entre servicios y sistemas internos.',
         'Integración de Google Maps y Mapbox.',
         'Procesos de web scraping e integración con servicios de terceros.',
+        'Funcionalidades de chat y análisis de datos para la operación.',
       ],
     },
     {
@@ -245,13 +225,13 @@ const es = {
     { title: 'Backend', items: ['Python', 'FastAPI', 'Django', 'Node.js', 'C# / .NET', 'SQLAlchemy'] },
     { title: 'Frontend', items: ['React', 'Next.js', 'Angular', 'TypeScript', 'Tailwind CSS'] },
     { title: 'Datos y cloud', items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Redis', 'Docker', 'Azure', 'CI/CD'] },
-    { title: 'IA e integraciones', items: ['Tool calling', 'WhatsApp Cloud API', 'Pasarelas de pago', 'Google Maps', 'Mapbox'] },
+    { title: 'Integraciones', items: ['APIs REST', 'WhatsApp Cloud API', 'Pasarelas de pago', 'Google Maps', 'Mapbox'] },
   ],
   contact: {
     eyebrow: 'Contacto',
     title: '¿Necesitas a alguien que entienda el negocio antes de programar?',
     description:
-      'Busco oportunidades remotas o híbridas como Full Stack, Backend o desarrollador de software con IA. Te respondo en menos de 24 horas.',
+      'Busco oportunidades remotas o híbridas como Full Stack o Backend Developer. Te respondo en menos de 24 horas.',
     phone: 'Teléfono',
     location: 'Ubicación',
   },
@@ -262,7 +242,7 @@ const en = {
   document: {
     title: 'Andres Diez | Full Stack Developer',
     description:
-      'Full Stack Developer who turns business processes into reliable systems: documented architecture, APIs, interfaces and AI with verifiable rules.',
+      'Full Stack Developer who turns business processes into reliable systems: documented architecture, APIs, interfaces and integrations.',
   },
   personalInfo: {
     ...shared,
@@ -283,45 +263,38 @@ const en = {
     { label: 'Contact', href: '#contact' },
   ],
   hero: {
-    badge: 'Available · Full Stack · Backend · Applied AI',
+    badge: 'Available · Full Stack · Backend',
     title: 'I turn complex business processes into',
     titleAccent: 'reliable systems.',
     summary:
       'Full Stack Developer working with Python, FastAPI, .NET, React and Angular. Before writing code I map the process, document rules and risks, record architecture decisions as ADRs and define contracts. Then I build, test and audit.',
     primary: 'View case studies',
     cv: 'Download CV',
-    evidenceTitle: 'Evidence from my two main projects',
-    evidence: [
-      { value: '62', label: 'Architecture decisions (ADRs)' },
-      { value: '322', label: 'User stories with acceptance criteria' },
-      { value: '39', label: 'Product epics' },
-      { value: '153', label: 'Automated test files' },
-    ],
     docCard: {
-      file: 'docs/ADR/0003-ai-tool-calling.md',
+      file: 'altovivo/docs/ADR/0018-stock-concurrency-locking.md',
       status: 'Accepted',
-      title: 'The AI never generates prices from memory',
+      title: 'Pessimistic locking for inventory',
       context:
-        'A model can "hallucinate" a plausible but wrong price. Unacceptable when real money is involved.',
+        'Two cashiers selling the same product at the same time could lose a stock update.',
       decision:
-        'Tool calling: the model picks the action, but every price, slot or delivery zone comes from a query against the restaurant’s database.',
+        'An atomic INSERT … ON CONFLICT centralizes row locking for the five modules that move inventory, with a deterministic acquisition order.',
       tradeoff:
-        'More complexity than a plain prompt, in exchange for verifiable answers and regression tests over fixed conversations.',
+        'It introduces deadlock risk, handled by the fixed order. Optimistic locking was rejected because every call site would need retry logic.',
       labels: { context: 'Context', decision: 'Decision', tradeoff: 'Trade-off' },
     },
   },
   sections: {
     process: {
       eyebrow: 'How I work',
-      title: 'AI speeds up the code. The judgment is mine.',
+      title: 'I understand the problem before writing code.',
       description:
-        'Anyone can generate screens today. The hard part is knowing what to build, what can go wrong and how to keep it maintainable. Every step of my process leaves a reviewable deliverable.',
+        'The hard part isn’t coding a screen, it’s knowing what to build, what can go wrong and how to keep it maintainable. Every step of my process leaves a reviewable deliverable.',
     },
     cases: {
       eyebrow: 'Case studies',
       title: 'Two systems designed end to end.',
       description:
-        'Not demos. Products with real business rules: money, inventory, permissions and concurrency. Here is what I decided and why.',
+        'Products with real business rules: money, inventory, permissions and concurrency. Here is what I decided and why.',
     },
     experience: {
       eyebrow: 'Experience',
@@ -329,7 +302,7 @@ const en = {
     },
     stack: {
       eyebrow: 'Stack',
-      title: 'Tools I use with intent.',
+      title: 'Tools I use every day.',
     },
   },
   processSteps: [
@@ -363,7 +336,6 @@ const en = {
     problem: 'The problem',
     role: 'My role',
     decisions: 'Key decisions',
-    why: 'Why',
     stack: 'Stack',
     visit: 'Visit platform',
     docs: 'Request documentation',
@@ -374,41 +346,6 @@ const en = {
   },
   cases: [
     {
-      id: 'restaurante',
-      name: 'Restaurant operations platform',
-      tagline: 'AI WhatsApp assistant + full restaurant operations',
-      status: 'In development · Private repository',
-      problem:
-        'Delivery apps charge commission on the full sale, WhatsApp gets answered slowly by hand, and owners can’t see where money leaks: cash that doesn’t reconcile, fake payment receipts and rising ingredient costs.',
-      role:
-        'Product, documentation, architecture and development end to end: vision and pricing, 17 epics, ADRs, data model, WhatsApp integration, Python backend and Next.js frontend.',
-      stats: [
-        { value: '29', label: 'ADRs' },
-        { value: '126', label: 'Stories' },
-        { value: '17', label: 'Epics' },
-        { value: '71', label: 'Test files' },
-      ],
-      decisions: [
-        {
-          title: 'AI with tool calling, no prices in the prompt',
-          why: 'The model chooses the action; verifiable data comes from the tenant’s database. A fixed set of conversations runs before any prompt change.',
-        },
-        {
-          title: 'Multi-gateway payment adapter',
-          why: 'A single source of truth for money and refunds, independent of the provider, with OCR and receipt verification against fraud.',
-        },
-        {
-          title: 'AI provider abstraction',
-          why: 'Tools aren’t coupled to one model, mitigating provider cost, outage and change risks.',
-        },
-        {
-          title: 'Transition effects through an outbox',
-          why: 'Order state changes trigger notifications reliably, without losing events when an external service fails.',
-        },
-      ],
-      stack: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'arq', 'Next.js', 'WhatsApp Cloud API', 'Docker'],
-    },
-    {
       id: 'altovivo',
       name: 'Alto Vivo',
       tagline: 'Multi-business management system: inventory, sales, finance and production',
@@ -417,13 +354,7 @@ const en = {
       problem:
         'Each business needed to manage inventory, sales, receivables, finance and production with its own rules and permissions, without duplicating platforms or mixing data across organizations.',
       role:
-        'Independent project built from client requirements. I designed the multi-tenant architecture, documented 22 epics and 20 API contracts, built the modules and audited the system over 7 rounds.',
-      stats: [
-        { value: '33', label: 'ADRs' },
-        { value: '196', label: 'Stories' },
-        { value: '20', label: 'API contracts' },
-        { value: '82', label: 'Test files' },
-      ],
+        'Independent project built from client requirements. I designed the multi-tenant architecture, documented epics, user stories and API contracts, built the modules and audited the system to prioritize technical debt.',
       decisions: [
         {
           title: 'Pessimistic locking on stock',
@@ -445,6 +376,35 @@ const en = {
       stack: ['Python', 'FastAPI', 'SQLAlchemy', 'Alembic', 'PostgreSQL', 'Redis', 'React', 'Docker', 'Wompi'],
       screenshots: screenshots.altovivo,
     },
+    {
+      id: 'restaurante',
+      name: 'Restaurant operations platform',
+      tagline: 'Multichannel orders, kitchen, cash register and payments in one platform',
+      status: 'In development · Private repository',
+      problem:
+        'Delivery apps charge commission on the full sale, WhatsApp gets answered slowly by hand, and owners can’t see where money leaks: cash that doesn’t reconcile, fake payment receipts and rising ingredient costs.',
+      role:
+        'Product, documentation, architecture and development end to end: vision, scope and pricing, epics, ADRs, data model, WhatsApp integration, Python backend and Next.js frontend.',
+      decisions: [
+        {
+          title: 'Multi-tenant on PostgreSQL',
+          why: 'Each restaurant runs isolated on the same database, with a single login for orders, cash register and shifts.',
+        },
+        {
+          title: 'Multi-gateway payment adapter',
+          why: 'A single source of truth for money and refunds, independent of the provider, with receipt verification against fraud.',
+        },
+        {
+          title: 'Transition effects through an outbox',
+          why: 'Order state changes trigger notifications reliably, without losing events when an external service fails.',
+        },
+        {
+          title: 'WhatsApp assistant with verifiable data',
+          why: 'The assistant handles orders and bookings, but prices, availability and zones always come from the database, never from generated text.',
+        },
+      ],
+      stack: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'arq', 'Next.js', 'WhatsApp Cloud API', 'Docker'],
+    },
   ],
   otherProject: {
     name: 'AgroKaja',
@@ -462,12 +422,12 @@ const en = {
       period: 'May 2026 – Present',
       context: 'On-site',
       summary:
-        'Enterprise GPS management solutions: APIs, geospatial services and AI features for operations.',
+        'Enterprise GPS management solutions: APIs, geospatial services and integrations with internal and third-party systems.',
       highlights: [
-        'AI-powered chat and data analysis applied to operations.',
         'Design and integration of REST APIs across internal services.',
         'Google Maps and Mapbox integration.',
         'Web scraping pipelines and third-party service integrations.',
+        'Chat and data analysis features for operations.',
       ],
     },
     {
@@ -488,13 +448,13 @@ const en = {
     { title: 'Backend', items: ['Python', 'FastAPI', 'Django', 'Node.js', 'C# / .NET', 'SQLAlchemy'] },
     { title: 'Frontend', items: ['React', 'Next.js', 'Angular', 'TypeScript', 'Tailwind CSS'] },
     { title: 'Data & cloud', items: ['PostgreSQL', 'MySQL', 'SQL Server', 'Redis', 'Docker', 'Azure', 'CI/CD'] },
-    { title: 'AI & integrations', items: ['Tool calling', 'WhatsApp Cloud API', 'Payment gateways', 'Google Maps', 'Mapbox'] },
+    { title: 'Integrations', items: ['REST APIs', 'WhatsApp Cloud API', 'Payment gateways', 'Google Maps', 'Mapbox'] },
   ],
   contact: {
     eyebrow: 'Contact',
     title: 'Need someone who understands the business before writing code?',
     description:
-      'I’m looking for remote or hybrid roles in Full Stack, Backend or AI-powered software development. I reply within 24 hours.',
+      'I’m looking for remote or hybrid roles as a Full Stack or Backend Developer. I reply within 24 hours.',
     phone: 'Phone',
     location: 'Location',
   },

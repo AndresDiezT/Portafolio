@@ -141,19 +141,6 @@ function Hero({ content }) {
           </div>
           <DecisionDocument doc={hero.docCard} />
         </div>
-
-        <div className="mt-16 sm:mt-20">
-          <p className="font-mono text-xs uppercase tracking-wider text-slate-500">{hero.evidenceTitle}</p>
-          <dl className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4">
-            {hero.evidence.map((item) => (
-              <div key={item.label} className="bg-slate-950 p-5 sm:p-6">
-                <dt className="sr-only">{item.label}</dt>
-                <dd className="font-mono text-3xl font-semibold text-white sm:text-4xl">{item.value}</dd>
-                <dd className="mt-2 text-xs leading-5 text-slate-400 sm:text-sm">{item.label}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </div>
     </section>
   )
@@ -203,15 +190,6 @@ function CaseStudy({ item, labels, personalInfo }) {
       </div>
       <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{item.name}</h3>
       <p className="mt-2 text-base text-slate-400 sm:text-lg">{item.tagline}</p>
-
-      <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {item.stats.map((stat) => (
-          <div key={stat.label} className="rounded-xl border border-white/10 bg-slate-950/60 p-4">
-            <dd className="font-mono text-2xl font-semibold text-white">{stat.value}</dd>
-            <dt className="mt-1 text-xs text-slate-400">{stat.label}</dt>
-          </div>
-        ))}
-      </dl>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         <div>
