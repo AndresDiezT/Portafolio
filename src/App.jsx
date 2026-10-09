@@ -182,7 +182,6 @@ function Screenshots({ images, name, label }) {
 }
 
 function CaseStudy({ item, labels, personalInfo }) {
-  const docsHref = `mailto:${personalInfo.email}?subject=${encodeURIComponent(`${labels.docsSubject}: ${item.name}`)}`
   return (
     <article className="case-card">
       <div className="flex flex-wrap items-center gap-3">
@@ -216,14 +215,9 @@ function CaseStudy({ item, labels, personalInfo }) {
 
       {item.screenshots && <Screenshots images={item.screenshots} name={item.name} label={labels.gallery} />}
 
-      <div className="mt-8 flex flex-col gap-6 border-t border-white/10 pt-6 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mt-8 border-t border-white/10 pt-6">
         <div className="flex flex-wrap gap-2">{item.stack.map((tech) => <span key={tech} className="tech-pill">{tech}</span>)}</div>
-        <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-          {item.url && <a href={item.url} target="_blank" rel="noreferrer" className="primary-button">{labels.visit}<ArrowUpRight size={17} /></a>}
-          <a href={docsHref} className="ghost-button">{labels.docs}<FileText size={17} /></a>
-        </div>
       </div>
-      <p className="mt-3 text-xs text-slate-500 lg:text-right">{labels.docsNote}</p>
     </article>
   )
 }
@@ -237,7 +231,6 @@ function OtherProject({ project, labels }) {
         <p className="mt-1 text-slate-400">{project.tagline}</p>
         <p className="mt-4 text-sm leading-7 text-slate-300">{project.description}</p>
         <div className="mt-5 flex flex-wrap gap-2">{project.stack.map((tech) => <span key={tech} className="tech-pill">{tech}</span>)}</div>
-        <a href={project.url} target="_blank" rel="noreferrer" className="mt-6 ghost-button">{labels.visit}<ArrowUpRight size={17} /></a>
       </div>
       <div className="grid grid-cols-2 gap-3">
         <img src={project.screenshots[0]} alt={`${project.name} — 1`} className="col-span-2 aspect-[16/9] w-full rounded-xl border border-white/10 object-cover object-top" loading="lazy" />
