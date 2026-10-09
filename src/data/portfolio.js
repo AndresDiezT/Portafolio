@@ -126,7 +126,6 @@ const es = {
       id: 'altovivo',
       name: 'Alto Vivo',
       tagline: 'Sistema de gestión multi-negocio: inventario, ventas, finanzas y producción',
-      status: 'En producción',
       url: 'https://altovivo.com',
       problem:
         'Cada negocio necesitaba controlar inventario, ventas, cartera, finanzas y producción con sus propias reglas y permisos, sin duplicar plataformas ni mezclar datos entre organizaciones.',
@@ -157,7 +156,6 @@ const es = {
       id: 'restaurante',
       name: 'Plataforma para operar restaurantes',
       tagline: 'Pedidos multicanal, cocina, caja y pagos en una sola plataforma',
-      status: 'En construcción · Repositorio privado',
       problem:
         'Las apps de domicilio cobran comisión sobre la venta total, WhatsApp se responde a mano y tarde, y el dueño no ve dónde pierde dinero: caja que no cuadra, comprobantes falsos e insumos que suben de precio.',
       role:
@@ -352,7 +350,6 @@ const en = {
       id: 'altovivo',
       name: 'Alto Vivo',
       tagline: 'Multi-business management system: inventory, sales, finance and production',
-      status: 'In production',
       url: 'https://altovivo.com',
       problem:
         'Each business needed to manage inventory, sales, receivables, finance and production with its own rules and permissions, without duplicating platforms or mixing data across organizations.',
@@ -383,7 +380,6 @@ const en = {
       id: 'restaurante',
       name: 'Restaurant operations platform',
       tagline: 'Multichannel orders, kitchen, cash register and payments in one platform',
-      status: 'In development · Private repository',
       problem:
         'Delivery apps charge commission on the full sale, WhatsApp gets answered slowly by hand, and owners can’t see where money leaks: cash that doesn’t reconcile, fake payment receipts and rising ingredient costs.',
       role:

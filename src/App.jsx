@@ -8,7 +8,6 @@ import {
   Github,
   GitBranch,
   Linkedin,
-  Lock,
   Menu,
   X,
 } from 'lucide-react'
@@ -220,10 +219,7 @@ function Screenshots({ images, name, label }) {
 function CaseStudy({ item, labels }) {
   return (
     <article className="case-card">
-      <div className="flex flex-wrap items-center gap-3">
-        <span className="status-pill">{item.url ? <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" /> : <Lock size={12} />}{item.status}</span>
-      </div>
-      <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{item.name}</h3>
+      <h3 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{item.name}</h3>
       <p className="mt-2 text-base text-slate-400 sm:text-lg">{item.tagline}</p>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">

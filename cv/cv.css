@@ -1,0 +1,86 @@
+@page {
+  size: A4;
+  margin: 16mm 18mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+}
+
+a {
+  color: #2e74b5;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 10pt;
+}
+
+h1 {
+  margin: 0;
+  font-size: 21pt;
+}
+
+.headline {
+  margin: 2pt 0 6pt;
+  color: #1f4e79;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+header p {
+  margin: 1pt 0;
+}
+
+h2 {
+  margin: 11pt 0 4pt;
+  color: #1f4e79;
+  font-size: 13.5pt;
+  break-after: avoid;
+}
+
+h3 {
+  margin: 7pt 0 1pt 8pt;
+  font-size: 11pt;
+}
+
+.meta {
+  margin: 0 0 2pt 14pt;
+}
+
+.stack {
+  margin: 0 0 2pt 14pt;
+  color: #1f4e79;
+  font-weight: bold;
+}
+
+.summary p {
+  margin: 0 0 4pt;
+}
+
+ul {
+  margin: 0 0 2pt;
+  padding-left: 42pt;
+}
+
+li {
+  margin: 0 0 1pt;
+}
+
+.skills li strong {
+  color: #1f4e79;
+}
+
+
+.item {
+  break-inside: avoid;
+}
+

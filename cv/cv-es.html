@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CV - Andres Diez</title>
+    <link rel="stylesheet" href="cv.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Andres Santiago Diez Tuberquia</h1>
+      <p class="headline">Full Stack Software Engineer</p>
+      <p>Bogotá, Colombia – disponibilidad de reubicación inmediata</p>
+      <p>
+        <a href="mailto:andresdieztuberquia@gmail.com">andresdieztuberquia@gmail.com</a> |
+        <a href="tel:+573115267920">(+57) 311 5267920</a> |
+        <a href="https://www.linkedin.com/in/andressantiagodiezfullstack">LinkedIn</a> |
+        <a href="https://github.com/AndresDiezT">GitHub</a> |
+        <a href="https://zorikweb.netlify.app/">Portafolio</a>
+      </p>
+      <p>(Interés en trabajo remoto/híbrido – disponibilidad completa)</p>
+    </header>
+
+    <section class="summary">
+      <h2>Perfil profesional</h2>
+      <p>
+        Full Stack Software Engineer con experiencia en aplicaciones empresariales en producción. Convierto procesos de
+        negocio en sistemas confiables: antes de programar entiendo el proceso, documento reglas y riesgos, registro las
+        decisiones de arquitectura y defino contratos de API y criterios de aceptación.
+      </p>
+      <p>
+        Desarrollo de punta a punta con Python, C#/.NET y Node.js en el backend, y React y Angular en el frontend. La
+        calidad es parte de cada entrega: pruebas automatizadas, regresión antes de cada cambio y resolución de
+        incidencias en producción.
+      </p>
+    </section>
+
+    <section>
+      <h2>Habilidades técnicas</h2>
+      <ul class="skills">
+        <li><strong>Backend:</strong> Python (FastAPI, Django), C# / .NET, Node.js (Express), PHP (Laravel)</li>
+        <li><strong>Frontend:</strong> React, Next.js, Angular, TypeScript, JavaScript, HTML, CSS, Tailwind CSS</li>
+        <li><strong>Bases de datos:</strong> PostgreSQL, SQL Server, MySQL, Redis, Entity Framework, SQLAlchemy, Alembic</li>
+        <li><strong>Testing y calidad:</strong> pytest, pruebas de unidad e integración, pruebas de regresión, criterios de aceptación, planes de prueba</li>
+        <li><strong>DevOps y cloud:</strong> Docker, Azure, Azure DevOps, Git, GitHub, CI/CD, Linux, DigitalOcean</li>
+        <li><strong>Arquitectura y procesos:</strong> APIs REST, arquitectura multi-tenant, ADRs, contratos de API, SDLC, Scrum</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experiencia laboral</h2>
+      <div class="item">
+        <h3>Desarrollador Full Stack</h3>
+        <p class="meta"><strong>GPS Control</strong> | Mayo 2026 – Actualidad | <strong>Modalidad: Presencial</strong></p>
+        <ul>
+          <li>Desarrollo y mantenimiento de sistemas empresariales de gestión GPS.</li>
+          <li>Diseño y consumo de APIs REST para la integración entre servicios y sistemas internos.</li>
+          <li>Integración de servicios geográficos (Google Maps, Mapbox) y APIs de terceros.</li>
+          <li>Procesos de web scraping para obtener e integrar datos externos.</li>
+          <li>Funcionalidades de chat y análisis de datos con IA para la operación.</li>
+          <li>Trabajo en equipo con Git y GitHub bajo metodologías ágiles.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Desarrollador Full Stack</h3>
+        <p class="meta"><strong>GroupCos</strong> | Octubre 2025 – Abril 2026 | <strong>Modalidad: Remoto</strong></p>
+        <p class="stack">Stack: Python, Node.js, MySQL, Docker, Azure</p>
+        <ul>
+          <li>Desarrollo de funcionalidades frontend y backend para una plataforma empresarial de ventas, usuarios y operaciones comerciales.</li>
+          <li>Construcción y consumo de APIs REST para la integración de servicios.</li>
+          <li>Diagnóstico y resolución de incidencias en producción, y mantenimiento de funcionalidades existentes.</li>
+          <li>Mejoras de experiencia de usuario en aplicaciones internas.</li>
+          <li>Entregas en sprints con Git y Azure DevOps.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Proyectos destacados</h2>
+      <div class="item">
+        <h3>Alto Vivo – Sistema de gestión multi-negocio</h3>
+        <p class="stack">Stack: Python, FastAPI, PostgreSQL, Redis, React, Docker</p>
+        <ul>
+          <li>Diseño y desarrollo de una plataforma multi-tenant para inventario, ventas, finanzas, producción y reportes, con roles, permisos y configuración por negocio.</li>
+          <li>Documentación del ciclo completo: épicas, historias de usuario con criterios de aceptación, contratos de API y decisiones de arquitectura (ADRs).</li>
+          <li>Control de concurrencia en el inventario para evitar errores en ventas simultáneas, e idempotencia para que un cobro reintentado no se duplique.</li>
+          <li>Pruebas automatizadas con pytest y auditoría del sistema con hallazgos priorizados por severidad y corregidos.</li>
+          <li>Migraciones versionadas con Alembic, checklist de despliegue y procedimiento de backups.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>Plataforma para operar restaurantes</h3>
+        <p class="stack">Stack: Python, FastAPI, PostgreSQL, Next.js, Docker</p>
+        <ul>
+          <li>Producto documentado de punta a punta: visión, alcance, riesgos, épicas, ADRs y plan de pruebas.</li>
+          <li>Pedidos multicanal, cocina, caja y pagos con un adaptador para varias pasarelas.</li>
+          <li>Integración con WhatsApp Cloud API: el asistente responde solo con datos de la base de datos, validado con pruebas de regresión sobre conversaciones fijas.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>AgroKaja – Marketplace agrícola</h3>
+        <p class="stack">Stack: Next.js, FastAPI</p>
+        <ul>
+          <li>Catálogo, carrito, pedidos, pagos y envíos entre productores, fincas y compradores.</li>
+          <li>Roles para productores, compradores y administradores, con paneles de gestión.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="item">
+      <h2>Educación</h2>
+      <h3>Tecnólogo en Análisis y Desarrollo de Software (ADSO)</h3>
+      <p class="stack">SENA – Finalizado en abril de 2026</p>
+    </section>
+
+    <section class="item">
+      <h2>Competencias e idiomas</h2>
+      <ul>
+        <li>Resolución de problemas, trabajo en equipo, aprendizaje autónomo y adaptabilidad.</li>
+        <li>Español: nativo.</li>
+        <li>Inglés: B1 – lectura técnica, documentación y comunicación escrita.</li>
+      </ul>
+    </section>
+  </body>
+</html>
